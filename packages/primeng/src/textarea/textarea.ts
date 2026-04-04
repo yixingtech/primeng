@@ -106,7 +106,7 @@ export class Textarea extends BaseModelHolder<TextareaPassThrough> {
 
     onInit() {
         if (this.ngControl) {
-            this.ngControlSubscription = (this.ngControl as any).valueChanges.subscribe(() => {
+            this.ngControlSubscription = this.ngControl.valueChanges?.subscribe(() => {
                 this.updateState();
             });
         }
