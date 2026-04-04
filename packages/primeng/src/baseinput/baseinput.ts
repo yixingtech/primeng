@@ -35,7 +35,7 @@ export class BaseInput<PT = any> extends BaseEditableHolder<PT> {
      * @defaultValue undefined
      * @group Props
      */
-    pattern = input<string | null | undefined>();
+    pattern = input<string | null | undefined>(undefined, { alias: 'pPattern' });
     /**
      * The value must be greater than or equal to the value.
      * @defaultValue undefined
