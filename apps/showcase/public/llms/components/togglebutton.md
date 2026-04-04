@@ -110,7 +110,7 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 @Component({
     template: `
         <div class="card flex justify-center">
-            <p-togglebutton [(ngModel)]="checked" onIcon="pi pi-check" offIcon="pi pi-times" [invalid]="!checked" class="w-full sm:w-40" aria-label="Confirmation" />
+            <p-togglebutton [(ngModel)]="checked" onIcon="pi pi-check" offIcon="pi pi-times" [pInvalid]="!checked" class="w-full sm:w-40" aria-label="Confirmation" />
         </div>
     `,
     standalone: true,
@@ -140,7 +140,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col items-center gap-4">
                 <div class="flex flex-col items-center gap-1">
-                    <p-togglebutton name="consent" formControlName="checked" [invalid]="isInvalid('checked')" onLabel="Accept All" offLabel="Reject All" class="min-w-40" />
+                    <p-togglebutton name="consent" formControlName="checked" [pInvalid]="isInvalid('checked')" onLabel="Accept All" offLabel="Reject All" class="min-w-40" />
                     @if (isInvalid('checked')) {
                         <p-message severity="error" size="small" variant="simple">Consent is mandatory.</p-message>
                     }
@@ -223,7 +223,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col items-center gap-4">
                 <div class="flex flex-col items-center gap-1">
-                    <p-togglebutton #model="ngModel" [(ngModel)]="checked" [invalid]="model.invalid && (model.touched || exampleForm.submitted)" name="country" onLabel="Accept All" offLabel="Reject All" required class="min-w-40" />
+                    <p-togglebutton #model="ngModel" [(ngModel)]="checked" [pInvalid]="model.invalid && (model.touched || exampleForm.submitted)" name="country" onLabel="Accept All" offLabel="Reject All" required class="min-w-40" />
                     @if (model.invalid && (model.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Consent is mandatory.</p-message>
                     }
@@ -355,4 +355,3 @@ ToggleButton is used to select a boolean value using a button.
 | togglebutton.content.sm.padding | --p-togglebutton-content-sm-padding | Sm padding of content |
 | togglebutton.content.lg.padding | --p-togglebutton-content-lg-padding | Lg padding of content |
 | togglebutton.content.checked.background | --p-togglebutton-content-checked-background | Checked background of content |
-

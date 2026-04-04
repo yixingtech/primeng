@@ -17,8 +17,8 @@ interface AutoCompleteCompleteEvent {
             <p>The invalid state is applied using the <i>⁠invalid</i> property to indicate failed validation, which can be integrated with Angular Forms.</p>
         </app-docsectiontext>
         <div class="card flex flex-wrap justify-center gap-4">
-            <p-autocomplete [(ngModel)]="value1" [suggestions]="suggestions" [invalid]="!value1" (completeMethod)="search($event)" placeholder="Code" />
-            <p-autocomplete [(ngModel)]="value2" [suggestions]="suggestions" [invalid]="!value2" (completeMethod)="search($event)" variant="filled" placeholder="Code" />
+            <p-autocomplete [(ngModel)]="value1" [suggestions]="suggestions" [pInvalid]="!value1" (completeMethod)="search($event)" placeholder="Code" />
+            <p-autocomplete [(ngModel)]="value2" [suggestions]="suggestions" [pInvalid]="!value2" (completeMethod)="search($event)" variant="filled" placeholder="Code" />
         </div>
         <app-code></app-code>`
 })

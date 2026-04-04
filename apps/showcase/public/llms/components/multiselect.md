@@ -464,8 +464,8 @@ interface City {
 @Component({
     template: `
         <div class="card flex justify-center gap-4">
-            <p-multiselect [options]="cities" [(ngModel)]="selectedCities1" [invalid]="value1" optionLabel="name" placeholder="Select Cities" [maxSelectedLabels]="3" class="w-full md:w-80" />
-            <p-multiselect [options]="cities" [(ngModel)]="selectedCities2" [invalid]="value2" optionLabel="name" placeholder="Select Cities" [maxSelectedLabels]="3" class="w-full md:w-80" variant="filled" />
+            <p-multiselect [options]="cities" [(ngModel)]="selectedCities1" [pInvalid]="value1" optionLabel="name" placeholder="Select Cities" [maxSelectedLabels]="3" class="w-full md:w-80" />
+            <p-multiselect [options]="cities" [(ngModel)]="selectedCities2" [pInvalid]="value2" optionLabel="name" placeholder="Select Cities" [maxSelectedLabels]="3" class="w-full md:w-80" variant="filled" />
         </div>
     `,
     standalone: true,
@@ -543,7 +543,7 @@ interface City {
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex justify-center flex-col gap-4 w-full md:w-80">
                 <div class="flex flex-col gap-1">
-                    <p-multiselect [options]="cities" formControlName="city" optionLabel="name" placeholder="Select Cities" [maxSelectedLabels]="3" [fluid]="true" [invalid]="isInvalid('city')" />
+                    <p-multiselect [options]="cities" formControlName="city" optionLabel="name" placeholder="Select Cities" [maxSelectedLabels]="3" [fluid]="true" [pInvalid]="isInvalid('city')" />
                     @if (isInvalid('city')) {
                         <p-message severity="error" size="small" variant="simple">City is required.</p-message>
                     }
@@ -726,7 +726,7 @@ interface City {
                         name="city"
                         placeholder="Select Cities"
                         [maxSelectedLabels]="3"
-                        [invalid]="city.invalid && (city.touched || exampleForm.submitted)"
+                        [pInvalid]="city.invalid && (city.touched || exampleForm.submitted)"
                         fluid
                         required
                     />
@@ -1046,4 +1046,3 @@ MultiSelect is used to select multiple items from a collection.
 | multiselect.clear.icon.color | --p-multiselect-clear-icon-color | Color of clear icon |
 | multiselect.chip.border.radius | --p-multiselect-chip-border-radius | Border radius of chip |
 | multiselect.empty.message.padding | --p-multiselect-empty-message-padding | Padding of empty message |
-

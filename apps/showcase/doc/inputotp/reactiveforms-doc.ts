@@ -19,7 +19,7 @@ import { AppDocSectionText } from '@/components/doc/app.docsectiontext';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-inputotp formControlName="value" [invalid]="isInvalid('value')" />
+                    <p-inputotp formControlName="value" [pInvalid]="isInvalid('value')" />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">Passcode is required.</p-message>
                     }

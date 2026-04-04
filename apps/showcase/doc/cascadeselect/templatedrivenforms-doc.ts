@@ -23,7 +23,7 @@ import { AppDocSectionText } from '@/components/doc/app.docsectiontext';
                         #city="ngModel"
                         [(ngModel)]="selectedCity"
                         [options]="countries"
-                        [invalid]="city.invalid && (city.touched || exampleForm.submitted)"
+                        [pInvalid]="city.invalid && (city.touched || exampleForm.submitted)"
                         name="city"
                         optionLabel="cname"
                         optionGroupLabel="name"

@@ -24,7 +24,7 @@ import { AppDocSectionText } from '@/components/doc/app.docsectiontext';
                 <div class="flex flex-wrap gap-4">
                     @for (item of formKeys; track item) {
                         <div class="flex items-center gap-2">
-                            <p-checkbox [formControlName]="item" [binary]="true" [inputId]="item" [invalid]="isInvalid(item)" />
+                            <p-checkbox [formControlName]="item" [binary]="true" [inputId]="item" [pInvalid]="isInvalid(item)" />
                             <label [for]="item"> {{ item | titlecase }} </label>
                         </div>
                     }

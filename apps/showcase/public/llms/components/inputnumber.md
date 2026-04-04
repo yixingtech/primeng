@@ -258,8 +258,8 @@ import { InputNumberModule } from 'primeng/inputnumber';
 @Component({
     template: `
         <div class="card flex flex-wrap justify-center gap-4">
-            <p-inputnumber [(ngModel)]="value1" [invalid]="value1 === undefined" mode="decimal" [minFractionDigits]="2" placeholder="Amount" />
-            <p-inputnumber [(ngModel)]="value2" [invalid]="value2 === undefined" mode="decimal" [minFractionDigits]="2" variant="filled" placeholder="Amount" />
+            <p-inputnumber [(ngModel)]="value1" [pInvalid]="value1 === undefined" mode="decimal" [minFractionDigits]="2" placeholder="Amount" />
+            <p-inputnumber [(ngModel)]="value2" [pInvalid]="value2 === undefined" mode="decimal" [minFractionDigits]="2" variant="filled" placeholder="Amount" />
         </div>
     `,
     standalone: true,
@@ -413,7 +413,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-inputnumber inputId="integeronly" formControlName="value" [invalid]="isInvalid('value')" />
+                    <p-inputnumber inputId="integeronly" formControlName="value" [pInvalid]="isInvalid('value')" />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">Number is required.</p-message>
                     }
@@ -496,7 +496,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-inputnumber inputId="integeronly" #inputValue="ngModel" name="inputValue" [(ngModel)]="value" [invalid]="inputValue.invalid && (inputValue.touched || exampleForm.submitted)" required />
+                    <p-inputnumber inputId="integeronly" #inputValue="ngModel" name="inputValue" [(ngModel)]="value" [pInvalid]="inputValue.invalid && (inputValue.touched || exampleForm.submitted)" required />
                     @if (inputValue.invalid && (inputValue.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Number is required.</p-message>
                     }
@@ -673,4 +673,3 @@ InputNumber is an input component to provide numerical input.
 | inputnumber.button.color | --p-inputnumber-button-color | Color of button |
 | inputnumber.button.hover.color | --p-inputnumber-button-hover-color | Hover color of button |
 | inputnumber.button.active.color | --p-inputnumber-button-active-color | Active color of button |
-

@@ -232,8 +232,8 @@ import { InputTextModule } from 'primeng/inputtext';
 @Component({
     template: `
         <div class="card flex flex-wrap justify-center gap-4">
-            <input pInputText [(ngModel)]="value1" [invalid]="!value1" placeholder="Name" />
-            <input pInputText [(ngModel)]="value2" [invalid]="!value2" variant="filled" placeholder="Name" />
+            <input pInputText [(ngModel)]="value1" [pInvalid]="!value1" placeholder="Name" />
+            <input pInputText [(ngModel)]="value2" [pInvalid]="!value2" variant="filled" placeholder="Name" />
         </div>
     `,
     standalone: true,
@@ -285,13 +285,13 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 w-full sm:w-56">
                 <div class="flex flex-col gap-1">
-                    <input pInputText type="text" id="username" placeholder="Username" formControlName="username" [invalid]="isInvalid('username')" />
+                    <input pInputText type="text" id="username" placeholder="Username" formControlName="username" [pInvalid]="isInvalid('username')" />
                     @if (isInvalid('username')) {
                         <p-message severity="error" size="small" variant="simple">Username is required.</p-message>
                     }
                 </div>
                 <div class="flex flex-col gap-1">
-                    <input pInputText type="email" id="email" placeholder="Email" formControlName="email" [invalid]="isInvalid('email')" />
+                    <input pInputText type="email" id="email" placeholder="Email" formControlName="email" [pInvalid]="isInvalid('email')" />
                     @if (isInvalid('email')) {
                         @if (exampleForm.get('email')?.errors?.['required']) {
                             <p-message severity="error" size="small" variant="simple">Email is required.</p-message>
@@ -380,13 +380,13 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4 w-full sm:w-56">
                 <div class="flex flex-col gap-1">
-                    <input pInputText type="text" id="username" placeholder="Username" name="username" [(ngModel)]="user.username" #username="ngModel" [invalid]="username.invalid && (username.touched || exampleForm.submitted)" required />
+                    <input pInputText type="text" id="username" placeholder="Username" name="username" [(ngModel)]="user.username" #username="ngModel" [pInvalid]="username.invalid && (username.touched || exampleForm.submitted)" required />
                     @if (username.invalid && (username.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Username is required.</p-message>
                     }
                 </div>
                 <div class="flex flex-col gap-1">
-                    <input pInputText type="email" id="email" name="email" placeholder="Email" [(ngModel)]="user.email" #email="ngModel" required email [invalid]="email.invalid && (email.touched || exampleForm.submitted)" />
+                    <input pInputText type="email" id="email" name="email" placeholder="Email" [(ngModel)]="user.email" #email="ngModel" required email [pInvalid]="email.invalid && (email.touched || exampleForm.submitted)" />
                     @if (email.invalid && (email.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">
                             @if (email.hasError('required')) {
@@ -485,4 +485,3 @@ InputText directive is an extension to standard input element with theming.
 | inputtext.lg.font.size | --p-inputtext-lg-font-size | Lg font size of root |
 | inputtext.lg.padding.x | --p-inputtext-lg-padding-x | Lg padding x of root |
 | inputtext.lg.padding.y | --p-inputtext-lg-padding-y | Lg padding y of root |
-

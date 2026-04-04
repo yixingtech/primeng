@@ -20,7 +20,7 @@ import { CommonModule } from '@angular/common';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4 w-40">
                 <div class="flex flex-col items-center gap-2">
-                    <p-rating #ratingValue="ngModel" [(ngModel)]="value" required name="ratingValue" [invalid]="ratingValue.invalid && (ratingValue.touched || exampleForm.submitted)" />
+                    <p-rating #ratingValue="ngModel" [(ngModel)]="value" required name="ratingValue" [pInvalid]="ratingValue.invalid && (ratingValue.touched || exampleForm.submitted)" />
                     @if (ratingValue.invalid && (ratingValue.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Value is required.</p-message>
                     }

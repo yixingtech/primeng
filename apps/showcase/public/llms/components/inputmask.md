@@ -204,8 +204,8 @@ import { InputMaskModule } from 'primeng/inputmask';
 @Component({
     template: `
         <div class="card flex flex-wrap justify-center gap-4">
-            <input pInputText [(ngModel)]="value1" pInputMask="99-999999" placeholder="Serial Key" [invalid]="!value1" />
-            <input pInputText [(ngModel)]="value2" pInputMask="99-999999" placeholder="Serial Key" [invalid]="!value2" variant="filled" />
+            <input pInputText [(ngModel)]="value1" pInputMask="99-999999" placeholder="Serial Key" [pInvalid]="!value1" />
+            <input pInputText [(ngModel)]="value2" pInputMask="99-999999" placeholder="Serial Key" [pInvalid]="!value2" variant="filled" />
         </div>
     `,
     standalone: true,
@@ -298,7 +298,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 sm:w-56">
                 <div class="flex flex-col gap-1">
-                    <input pInputText pInputMask="99-999999" formControlName="value" placeholder="99-999999" [invalid]="isInvalid('value')" fluid />
+                    <input pInputText pInputMask="99-999999" formControlName="value" placeholder="99-999999" [pInvalid]="isInvalid('value')" fluid />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">Serial number is required.</p-message>
                     }
@@ -408,7 +408,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex justify-center flex-col gap-4 md:w-56">
                 <div class="flex flex-col gap-1">
-                    <input pInputText name="serial" pInputMask="99-999999" #serialNumber="ngModel" [(ngModel)]="value" placeholder="99-999999" [invalid]="serialNumber.invalid && (serialNumber.touched || exampleForm.submitted)" required fluid />
+                    <input pInputText name="serial" pInputMask="99-999999" #serialNumber="ngModel" [(ngModel)]="value" placeholder="99-999999" [pInvalid]="serialNumber.invalid && (serialNumber.touched || exampleForm.submitted)" required fluid />
                     @if (serialNumber.invalid && (serialNumber.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Serial number is required.</p-message>
                     }
@@ -515,4 +515,3 @@ InputMask component is used to enter input in a certain format such as numeric, 
 |-------|-------------|
 | p-inputmask | Class name of the root element |
 | p-inputmask-clear-icon | Class name of the clear icon element |
-

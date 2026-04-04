@@ -19,7 +19,7 @@ import { AppCode } from '@/components/doc/app.code';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex justify-center flex-col gap-4">
                 <div class="flex flex-col gap-4">
-                    <p-slider #model="ngModel" [(ngModel)]="value" class="w-56" required [invalid]="model.invalid && (model.touched || exampleForm.submitted)" name="slider" />
+                    <p-slider #model="ngModel" [(ngModel)]="value" class="w-56" required [pInvalid]="model.invalid && (model.touched || exampleForm.submitted)" name="slider" />
                     @if (model.invalid && (model.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Must be greater than 25.</p-message>
                     }

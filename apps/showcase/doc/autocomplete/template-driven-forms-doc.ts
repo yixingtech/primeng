@@ -20,7 +20,7 @@ import { AppCode } from '@/components/doc/app.code';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex justify-center flex-col gap-4 md:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-autocomplete #val="ngModel" [(ngModel)]="value" [suggestions]="items" [invalid]="val.invalid && (val.touched || exampleForm.submitted)" name="val" (completeMethod)="search($event)" required fluid />
+                    <p-autocomplete #val="ngModel" [(ngModel)]="value" [suggestions]="items" [pInvalid]="val.invalid && (val.touched || exampleForm.submitted)" name="val" (completeMethod)="search($event)" required fluid />
                     @if (val.invalid && (val.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Value is required.</p-message>
                     }

@@ -13,8 +13,8 @@ import { AppDocSectionText } from '@/components/doc/app.docsectiontext';
             <p>The invalid state is applied using the <i>⁠invalid</i> property to indicate failed validation, which can be integrated with Angular Forms.</p>
         </app-docsectiontext>
         <div class="card flex flex-wrap justify-center gap-4">
-            <p-password [(ngModel)]="value1" [invalid]="!value1" placeholder="Password" />
-            <p-password [(ngModel)]="value2" [invalid]="!value2" variant="filled" placeholder="Password" />
+            <p-password [(ngModel)]="value1" [pInvalid]="!value1" placeholder="Password" />
+            <p-password [(ngModel)]="value2" [pInvalid]="!value2" variant="filled" placeholder="Password" />
         </div>
         <app-code></app-code>
     `

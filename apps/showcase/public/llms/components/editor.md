@@ -83,7 +83,7 @@ import { MessageService } from 'primeng/api';
         <div class="card ">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-editor formControlName="text" [invalid]="isInvalid('text')" [style]="{ height: '320px' }" />
+                    <p-editor formControlName="text" [pInvalid]="isInvalid('text')" [style]="{ height: '320px' }" />
                     @if (isInvalid('text')) {
                         <p-message severity="error" size="small" variant="simple">Content is required.</p-message>
                     }
@@ -163,7 +163,7 @@ import { MessageService } from 'primeng/api';
         <div class="card">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-editor #content="ngModel" [(ngModel)]="text" [invalid]="content.invalid && (content.touched || exampleForm.submitted)" name="content" [style]="{ height: '320px' }" required />
+                    <p-editor #content="ngModel" [(ngModel)]="text" [pInvalid]="content.invalid && (content.touched || exampleForm.submitted)" name="content" [style]="{ height: '320px' }" required />
                     @if (content.invalid && (content.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Content is required.</p-message>
                     }
@@ -289,4 +289,3 @@ Editor groups a collection of contents in tabs.
 | editor.content.border.color | --p-editor-content-border-color | Border color of content |
 | editor.content.color | --p-editor-content-color | Color of content |
 | editor.content.border.radius | --p-editor-content-border-radius | Border radius of content |
-

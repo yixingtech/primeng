@@ -183,7 +183,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
     template: `
         <div class="card flex justify-center">
-            <textarea rows="5" cols="30" pTextarea [(ngModel)]="value" [invalid]="!value" placeholder="Address"></textarea>
+            <textarea rows="5" cols="30" pTextarea [(ngModel)]="value" [pInvalid]="!value" placeholder="Address"></textarea>
         </div>
     `,
     standalone: true,
@@ -231,7 +231,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <textarea rows="5" cols="30" pTextarea formControlName="address" [invalid]="isInvalid('address')"></textarea>
+                    <textarea rows="5" cols="30" pTextarea formControlName="address" [pInvalid]="isInvalid('address')"></textarea>
                     @if (isInvalid('address')) {
                         <p-message severity="error" size="small" variant="simple">Address is required..</p-message>
                     }
@@ -313,7 +313,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <textarea name="address" #address="ngModel" rows="5" cols="30" [(ngModel)]="value" pTextarea [invalid]="address.invalid && (address.touched || exampleForm.submitted)" required></textarea>
+                    <textarea name="address" #address="ngModel" rows="5" cols="30" [(ngModel)]="value" pTextarea [pInvalid]="address.invalid && (address.touched || exampleForm.submitted)" required></textarea>
                     @if (address.invalid && (address.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Address is required.</p-message>
                     }
@@ -413,4 +413,3 @@ Textarea adds styling and autoResize functionality to standard textarea element.
 | textarea.lg.font.size | --p-textarea-lg-font-size | Lg font size of root |
 | textarea.lg.padding.x | --p-textarea-lg-padding-x | Lg padding x of root |
 | textarea.lg.padding.y | --p-textarea-lg-padding-y | Lg padding y of root |
-

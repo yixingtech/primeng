@@ -63,7 +63,7 @@ class TestBasicRatingComponent {
     imports: [Rating, ReactiveFormsModule],
     template: `
         <form [formGroup]="ratingForm">
-            <p-rating formControlName="rating" [stars]="5" [invalid]="isInvalid" />
+            <p-rating formControlName="rating" [stars]="5" [pInvalid]="isInvalid" />
         </form>
     `
 })

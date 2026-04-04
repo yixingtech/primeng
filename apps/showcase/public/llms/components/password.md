@@ -197,8 +197,8 @@ import { PasswordModule } from 'primeng/password';
 @Component({
     template: `
         <div class="card flex flex-wrap justify-center gap-4">
-            <p-password [(ngModel)]="value1" [invalid]="!value1" placeholder="Password" />
-            <p-password [(ngModel)]="value2" [invalid]="!value2" variant="filled" placeholder="Password" />
+            <p-password [(ngModel)]="value1" [pInvalid]="!value1" placeholder="Password" />
+            <p-password [(ngModel)]="value2" [pInvalid]="!value2" variant="filled" placeholder="Password" />
         </div>
     `,
     standalone: true,
@@ -275,7 +275,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 sm:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-password formControlName="value" [invalid]="isInvalid('value')" [feedback]="false" autocomplete="off" fluid />
+                    <p-password formControlName="value" [pInvalid]="isInvalid('value')" [feedback]="false" autocomplete="off" fluid />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">Password is required.</p-message>
                     }
@@ -397,7 +397,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex justify-center flex-col gap-4 md:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-password #model="ngModel" [(ngModel)]="value" [invalid]="model.invalid && (model.touched || exampleForm.submitted)" name="password" [feedback]="false" autocomplete="off" required fluid />
+                    <p-password #model="ngModel" [(ngModel)]="value" [pInvalid]="model.invalid && (model.touched || exampleForm.submitted)" name="password" [feedback]="false" autocomplete="off" required fluid />
                     @if (model.invalid && (model.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Password is required.</p-message>
                     }
@@ -571,4 +571,3 @@ Password displays strength indicator for password fields.
 | password.strength.weak.background | --p-password-strength-weak-background | Weak background of strength |
 | password.strength.medium.background | --p-password-strength-medium-background | Medium background of strength |
 | password.strength.strong.background | --p-password-strength-strong-background | Strong background of strength |
-

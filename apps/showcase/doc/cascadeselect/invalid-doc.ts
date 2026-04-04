@@ -13,10 +13,10 @@ import { AppDocSectionText } from '@/components/doc/app.docsectiontext';
             <p>The invalid state is applied using the <i>⁠invalid</i> property to indicate failed validation, which can be integrated with Angular Forms.</p>
         </app-docsectiontext>
         <div class="card flex flex-wrap justify-center gap-4">
-            <p-cascadeselect [(ngModel)]="selectedCity1" [invalid]="!selectedCity1" [options]="countries" optionLabel="cname" optionGroupLabel="name" [optionGroupChildren]="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City" />
+            <p-cascadeselect [(ngModel)]="selectedCity1" [pInvalid]="!selectedCity1" [options]="countries" optionLabel="cname" optionGroupLabel="name" [optionGroupChildren]="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City" />
             <p-cascadeselect
                 [(ngModel)]="selectedCity2"
-                [invalid]="!selectedCity2"
+                [pInvalid]="!selectedCity2"
                 [options]="countries"
                 optionLabel="cname"
                 optionGroupLabel="name"

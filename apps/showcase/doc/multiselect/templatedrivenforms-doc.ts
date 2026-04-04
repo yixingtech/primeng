@@ -33,7 +33,7 @@ interface City {
                         name="city"
                         placeholder="Select Cities"
                         [maxSelectedLabels]="3"
-                        [invalid]="city.invalid && (city.touched || exampleForm.submitted)"
+                        [pInvalid]="city.invalid && (city.touched || exampleForm.submitted)"
                         fluid
                         required
                     />

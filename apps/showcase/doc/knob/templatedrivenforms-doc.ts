@@ -18,7 +18,7 @@ import { ToastModule } from 'primeng/toast';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col items-center gap-4">
                 <div class="flex flex-col items-center gap-1">
-                    <p-knob #model="ngModel" [(ngModel)]="value" [invalid]="isInvalid(model)" name="knob" />
+                    <p-knob #model="ngModel" [(ngModel)]="value" [pInvalid]="isInvalid(model)" name="knob" />
                     @if (isInvalid(model)) {
                         <p-message severity="error" size="small" variant="simple">{{ getErrorMessage(model) }}</p-message>
                     }

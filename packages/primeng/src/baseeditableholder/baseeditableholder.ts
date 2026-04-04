@@ -15,7 +15,7 @@ export class BaseEditableHolder<PT = any> extends BaseModelHolder<PT> implements
      * @defaultValue false
      * @group Props
      */
-    invalid = input(undefined, { transform: booleanAttribute });
+    invalid = input(undefined, { transform: booleanAttribute, alias: 'pInvalid' });
     /**
      * When present, it specifies that the component should have disabled state style.
      * @defaultValue false

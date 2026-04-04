@@ -93,7 +93,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 @Component({
     template: `
         <div class="card flex justify-center">
-            <p-selectbutton [options]="stateOptions" [(ngModel)]="value" optionLabel="label" optionValue="value" [invalid]="value === undefined" />
+            <p-selectbutton [options]="stateOptions" [(ngModel)]="value" optionLabel="label" optionValue="value" [pInvalid]="value === undefined" />
         </div>
     `,
     standalone: true,
@@ -148,7 +148,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-selectbutton [options]="stateOptions" formControlName="value" [invalid]="isInvalid('value')" optionLabel="label" optionValue="value" />
+                    <p-selectbutton [options]="stateOptions" formControlName="value" [pInvalid]="isInvalid('value')" optionLabel="label" optionValue="value" />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">Selection is required</p-message>
                     }
@@ -261,7 +261,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex justify-center flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-selectbutton #model="ngModel" [(ngModel)]="value" [options]="stateOptions" optionLabel="label" optionValue="value" [invalid]="model.invalid && (model.touched || exampleForm.submitted)" required name="value" />
+                    <p-selectbutton #model="ngModel" [(ngModel)]="value" [options]="stateOptions" optionLabel="label" optionValue="value" [pInvalid]="model.invalid && (model.touched || exampleForm.submitted)" required name="value" />
                     @if (model.invalid && (model.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Selection is required.</p-message>
                     }
@@ -353,4 +353,3 @@ SelectButton is used to choose single or multiple items from a list using button
 |-------|--------------|-------------|
 | selectbutton.border.radius | --p-selectbutton-border-radius | Border radius of root |
 | selectbutton.invalid.border.color | --p-selectbutton-invalid-border-color | Invalid border color of root |
-

@@ -47,7 +47,7 @@ import { InputTextModule } from 'primeng/inputtext';
     template: `
         <div class="card flex justify-center">
             <p-iftalabel>
-                <input pInputText id="username" [(ngModel)]="value" [invalid]="!value" autocomplete="off" />
+                <input pInputText id="username" [(ngModel)]="value" [pInvalid]="!value" autocomplete="off" />
                 <label for="username">Username</label>
             </p-iftalabel>
         </div>
@@ -102,4 +102,3 @@ IftaLabel is used to create infield top aligned labels.
 | iftalabel.font.weight | --p-iftalabel-font-weight | Font weight of root |
 | iftalabel.input.padding.top | --p-iftalabel-input-padding-top | Padding top of input |
 | iftalabel.input.padding.bottom | --p-iftalabel-input-padding-bottom | Padding bottom of input |
-

@@ -18,7 +18,7 @@ import { ToastModule } from 'primeng/toast';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-datepicker name="date" [invalid]="dateModel.invalid && (dateModel.touched || exampleForm.submitted)" #dateModel="ngModel" [(ngModel)]="date" required />
+                    <p-datepicker name="date" [pInvalid]="dateModel.invalid && (dateModel.touched || exampleForm.submitted)" #dateModel="ngModel" [(ngModel)]="date" required />
                     @if (dateModel.invalid && (dateModel.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Date is required.</p-message>
                     }

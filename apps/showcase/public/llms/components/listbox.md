@@ -325,7 +325,7 @@ interface City {
 @Component({
     template: `
         <div class="card flex justify-center">
-            <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" class="w-full md:w-56" [invalid]="selectedCity === undefined" />
+            <p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" class="w-full md:w-56" [pInvalid]="selectedCity === undefined" />
         </div>
     `,
     standalone: true,
@@ -410,7 +410,7 @@ interface City {
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 sm:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-listbox [options]="cities" formControlName="selectedCity" optionLabel="name" class="w-full md:w-56" [invalid]="isInvalid('selectedCity')" />
+                    <p-listbox [options]="cities" formControlName="selectedCity" optionLabel="name" class="w-full md:w-56" [pInvalid]="isInvalid('selectedCity')" />
                     @if (isInvalid('selectedCity')) {
                         <p-message severity="error" size="small" variant="simple">City is required.</p-message>
                     }
@@ -531,7 +531,7 @@ interface City {
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex justify-center flex-col gap-4 md:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-listbox #city="ngModel" [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" class="w-full md:w-56" [invalid]="city.invalid && exampleForm.submitted" name="city" required />
+                    <p-listbox #city="ngModel" [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" class="w-full md:w-56" [pInvalid]="city.invalid && exampleForm.submitted" name="city" required />
                     @if (city.invalid && exampleForm.submitted) {
                         <p-message severity="error" size="small" variant="simple">City is required.</p-message>
                     }
@@ -796,4 +796,3 @@ ListBox is used to select one or more values from a list of items.
 | listbox.checkmark.gutter.start | --p-listbox-checkmark-gutter-start | Gutter start of checkmark |
 | listbox.checkmark.gutter.end | --p-listbox-checkmark-gutter-end | Gutter end of checkmark |
 | listbox.empty.message.padding | --p-listbox-empty-message-padding | Padding of empty message |
-

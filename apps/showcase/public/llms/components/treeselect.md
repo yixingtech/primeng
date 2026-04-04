@@ -344,8 +344,8 @@ import { NodeService } from '@/service/nodeservice';
 @Component({
     template: `
         <div class="card flex flex-wrap justify-center gap-4">
-            <p-treeselect [invalid]="selectedValue1 === undefined" [(ngModel)]="selectedValue1" [options]="nodes" placeholder="TreeSelect" class="md:w-80 w-full" />
-            <p-treeselect [invalid]="selectedValue2 === undefined" [(ngModel)]="selectedValue2" [options]="nodes" placeholder="TreeSelect" class="md:w-80 w-full" />
+            <p-treeselect [pInvalid]="selectedValue1 === undefined" [(ngModel)]="selectedValue1" [options]="nodes" placeholder="TreeSelect" class="md:w-80 w-full" />
+            <p-treeselect [pInvalid]="selectedValue2 === undefined" [(ngModel)]="selectedValue2" [options]="nodes" placeholder="TreeSelect" class="md:w-80 w-full" />
         </div>
     `,
     standalone: true,
@@ -433,19 +433,19 @@ export class TreeselectLazyDemo implements OnInit {
     onNodeExpand(event: any) {
         if (!event.node.children) {
             event.node.loading = true;
-        
+
             setTimeout(() => {
                 const _nodes = this.nodes();
                 let _node = { ...event.node };
                 _node.children = [];
-        
+
                 for (let i = 0; i < 3; i++) {
                     _node.children.push({
                         key: event.node.key + '-' + i,
                         label: 'Lazy ' + event.node.label + '-' + i
                     });
                 }
-        
+
                 const key = parseInt(_node.key, 10);
                 _nodes[key] = { ..._node, loading: false };
                 this.nodes.set([..._nodes]);
@@ -509,7 +509,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 w-full md:w-80">
                 <div class="flex flex-col gap-1">
-                    <p-treeselect class="md:w-80 w-full" formControlName="selectedNodes" [options]="nodes" placeholder="Select Item" [invalid]="isInvalid('selectedNodes')" />
+                    <p-treeselect class="md:w-80 w-full" formControlName="selectedNodes" [options]="nodes" placeholder="Select Item" [pInvalid]="isInvalid('selectedNodes')" />
                     @if (isInvalid('selectedNodes')) {
                         <p-message severity="error" size="small" variant="simple">Selection is required.</p-message>
                     }
@@ -659,7 +659,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4 w-full md:w-80">
                 <div class="flex flex-col gap-1">
-                    <p-treeselect #node="ngModel" [(ngModel)]="selectedNodes" [invalid]="node.invalid && exampleForm.submitted" name="node" class="md:w-80 w-full" [options]="nodes" placeholder="Select Item" required />
+                    <p-treeselect #node="ngModel" [(ngModel)]="selectedNodes" [pInvalid]="node.invalid && exampleForm.submitted" name="node" class="md:w-80 w-full" [options]="nodes" placeholder="Select Item" required />
                     @if (node.invalid && exampleForm.submitted) {
                         <p-message severity="error" size="small" variant="simple">Selection is required.</p-message>
                     }
@@ -912,4 +912,3 @@ TreeSelect is a form component to choose from hierarchical data.
 | treeselect.clear.icon.color | --p-treeselect-clear-icon-color | Color of clear icon |
 | treeselect.empty.message.padding | --p-treeselect-empty-message-padding | Padding of empty message |
 | treeselect.chip.border.radius | --p-treeselect-chip-border-radius | Border radius of chip |
-

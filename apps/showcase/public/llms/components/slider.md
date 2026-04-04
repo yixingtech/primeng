@@ -207,7 +207,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex justify-center flex-col gap-4">
                 <div class="flex flex-col gap-4">
-                    <p-slider #model="ngModel" [(ngModel)]="value" class="w-56" required [invalid]="model.invalid && (model.touched || exampleForm.submitted)" name="slider" />
+                    <p-slider #model="ngModel" [(ngModel)]="value" class="w-56" required [pInvalid]="model.invalid && (model.touched || exampleForm.submitted)" name="slider" />
                     @if (model.invalid && (model.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Must be greater than 25.</p-message>
                     }
@@ -335,4 +335,3 @@ Slider is a component to provide input with a drag handle.
 | slider.handle.focus.ring.color | --p-slider-handle-focus-ring-color | Focus ring color of handle |
 | slider.handle.focus.ring.offset | --p-slider-handle-focus-ring-offset | Focus ring offset of handle |
 | slider.handle.focus.ring.shadow | --p-slider-handle-focus-ring-shadow | Focus ring shadow of handle |
-

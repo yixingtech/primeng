@@ -71,14 +71,14 @@ export class AutocompleteAdvancedChipsDemo implements OnInit {
     filterProducts(event: any) {
         let filtered: Product[] = [];
         let query = event.query;
-        
+
         for (let i = 0; i < this.products().length; i++) {
             let product = this.products()[i];
             if (product.name?.toLowerCase().indexOf(query.toLowerCase()) == 0) {
                 filtered.push(product);
             }
         }
-        
+
         this.filteredProducts = filtered;
     }
 
@@ -265,7 +265,7 @@ export class AutocompleteDropdownDemo {
 
     search(event: AutoCompleteCompleteEvent) {
         let _items = [...Array(10).keys()];
-        
+
         this.items = event.query ? [...Array(10).keys()].map((item) => event.query + '-' + item) : _items;
     }
 }
@@ -425,14 +425,14 @@ export class AutocompleteForceSelectionDemo implements OnInit {
     filterCountry(event: AutoCompleteCompleteEvent) {
         let filtered: any[] = [];
         let query = event.query;
-        
+
         for (let i = 0; i < (this.countries as any[]).length; i++) {
             let country = (this.countries as any[])[i];
             if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
                 filtered.push(country);
             }
         }
-        
+
         this.filteredCountries = filtered;
     }
 }
@@ -512,7 +512,7 @@ export class AutocompleteGroupDemo implements OnInit {
     filterGroupedCity(event: AutoCompleteCompleteEvent) {
         let query = event.query;
         let filteredGroups = [];
-        
+
         for (let optgroup of this.groupedCities as SelectItemGroup[]) {
             let filteredSubOptions = this.filterService.filter(optgroup.items, ['label'], query, 'contains');
             if (filteredSubOptions && filteredSubOptions.length) {
@@ -523,7 +523,7 @@ export class AutocompleteGroupDemo implements OnInit {
                 });
             }
         }
-        
+
         this.filteredGroups = filteredGroups;
     }
 }
@@ -583,8 +583,8 @@ interface AutoCompleteCompleteEvent {
 @Component({
     template: `
         <div class="card flex flex-wrap justify-center gap-4">
-            <p-autocomplete [(ngModel)]="value1" [suggestions]="suggestions" [invalid]="!value1" (completeMethod)="search($event)" placeholder="Code" />
-            <p-autocomplete [(ngModel)]="value2" [suggestions]="suggestions" [invalid]="!value2" (completeMethod)="search($event)" variant="filled" placeholder="Code" />
+            <p-autocomplete [(ngModel)]="value1" [suggestions]="suggestions" [pInvalid]="!value1" (completeMethod)="search($event)" placeholder="Code" />
+            <p-autocomplete [(ngModel)]="value2" [suggestions]="suggestions" [pInvalid]="!value2" (completeMethod)="search($event)" variant="filled" placeholder="Code" />
         </div>
     `,
     standalone: true,
@@ -679,14 +679,14 @@ export class AutocompleteObjectsDemo implements OnInit {
     filterCountry(event: AutoCompleteCompleteEvent) {
         let filtered: any[] = [];
         let query = event.query;
-        
+
         for (let i = 0; i < (this.countries as any[]).length; i++) {
             let country = (this.countries as any[])[i];
             if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
                 filtered.push(country);
             }
         }
-        
+
         this.filteredCountries = filtered;
     }
 }
@@ -716,7 +716,7 @@ interface AutoCompleteCompleteEvent {
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex justify-center flex-col gap-4 md:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-autocomplete formControlName="value" [suggestions]="items" [invalid]="isInvalid('value')" (completeMethod)="search($event)" fluid />
+                    <p-autocomplete formControlName="value" [suggestions]="items" [pInvalid]="isInvalid('value')" (completeMethod)="search($event)" fluid />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">Value is required.</p-message>
                     }
@@ -848,7 +848,7 @@ export class AutocompleteTemplateDemo implements OnInit {
     filterCountry(event: AutoCompleteCompleteEvent) {
         let filtered: any[] = [];
         let query = event.query;
-        
+
         for (let i = 0; i < (this.countries as any[]).length; i++) {
             let country = (this.countries as any[])[i];
             if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
@@ -877,7 +877,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex justify-center flex-col gap-4 md:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-autocomplete #val="ngModel" [(ngModel)]="value" [suggestions]="items" [invalid]="val.invalid && (val.touched || exampleForm.submitted)" name="val" (completeMethod)="search($event)" required fluid />
+                    <p-autocomplete #val="ngModel" [(ngModel)]="value" [suggestions]="items" [pInvalid]="val.invalid && (val.touched || exampleForm.submitted)" name="val" (completeMethod)="search($event)" required fluid />
                     @if (val.invalid && (val.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Value is required.</p-message>
                     }
@@ -946,14 +946,14 @@ export class AutocompleteVirtualScrollDemo implements OnInit {
         //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
         let filtered: any[] = [];
         let query = event.query;
-        
+
         for (let i = 0; i < (this.items as any[]).length; i++) {
             let item = (this.items as any[])[i];
             if (item.label.toLowerCase().indexOf(query.toLowerCase()) == 0) {
                 filtered.push(item);
             }
         }
-        
+
         this.filteredItems = filtered;
     }
 }
@@ -1074,4 +1074,3 @@ export class AutocompleteVirtualScrollDemo implements OnInit {
 | autocomplete.chip.focus.background | --p-autocomplete-chip-focus-background | Focus background of chip |
 | autocomplete.chip.focus.color | --p-autocomplete-chip-focus-color | Focus color of chip |
 | autocomplete.empty.message.padding | --p-autocomplete-empty-message-padding | Padding of empty message |
-

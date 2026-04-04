@@ -22,7 +22,7 @@ import { AppDocSectionText } from '@/components/doc/app.docsectiontext';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 sm:w-56">
                 <div class="flex flex-col gap-1">
-                    <input pInputText pInputMask="99-999999" formControlName="value" placeholder="99-999999" [invalid]="isInvalid('value')" fluid />
+                    <input pInputText pInputMask="99-999999" formControlName="value" placeholder="99-999999" [pInvalid]="isInvalid('value')" fluid />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">Serial number is required.</p-message>
                     }

@@ -145,7 +145,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 @Component({
     template: `
         <div class="card flex justify-center">
-            <p-checkbox [(ngModel)]="checked" [binary]="true" [invalid]="!checked" />
+            <p-checkbox [(ngModel)]="checked" [binary]="true" [pInvalid]="!checked" />
         </div>
     `,
     standalone: true,
@@ -239,7 +239,7 @@ import { MessageService } from 'primeng/api';
                 <div class="flex flex-wrap gap-4">
                     @for (item of formKeys; track item) {
                         <div class="flex items-center gap-2">
-                            <p-checkbox [formControlName]="item" [binary]="true" [inputId]="item" [invalid]="isInvalid(item)" />
+                            <p-checkbox [formControlName]="item" [binary]="true" [inputId]="item" [pInvalid]="isInvalid(item)" />
                             <label [for]="item"> {{ item | titlecase }} </label>
                         </div>
                     }
@@ -290,7 +290,7 @@ export class CheckboxReactiveformsDemo {
 
     onSubmit() {
         this.formSubmitted = true;
-        
+
         if (this.exampleForm.valid) {
             this.messageService.add({
                 severity: 'success',
@@ -298,14 +298,14 @@ export class CheckboxReactiveformsDemo {
                 detail: 'Form is submitted',
                 life: 3000
             });
-        
+
             this.exampleForm.reset({
                 cheese: false,
                 mushroom: false,
                 pepper: false,
                 onion: false
             });
-        
+
             this.formSubmitted = false;
         }
     }
@@ -365,7 +365,7 @@ import { MessageService } from 'primeng/api';
                 <div class="flex flex-wrap gap-4">
                     @for (item of formKeys; track item) {
                         <div class="flex items-center gap-2">
-                            <p-checkbox [inputId]="item" [name]="item" [(ngModel)]="formModel[item]" [binary]="true" [invalid]="isInvalid()"></p-checkbox>
+                            <p-checkbox [inputId]="item" [name]="item" [(ngModel)]="formModel[item]" [binary]="true" [pInvalid]="isInvalid()"></p-checkbox>
                             <label [for]="item">{{ item | titlecase }}</label>
                         </div>
                     }
@@ -397,7 +397,7 @@ export class CheckboxTemplatedrivenformsDemo {
 
     onSubmit(form: NgForm) {
         this.formSubmitted = true;
-        
+
         if (this.isAtLeastOneSelected()) {
             this.messageService.add({
                 severity: 'success',
@@ -405,7 +405,7 @@ export class CheckboxTemplatedrivenformsDemo {
                 detail: 'Form is submitted',
                 life: 3000
             });
-        
+
             this.formModel = {
                 cheese: false,
                 mushroom: false,
@@ -413,7 +413,7 @@ export class CheckboxTemplatedrivenformsDemo {
                 onion: false
             };
             form.resetForm(this.formModel);
-        
+
             this.formSubmitted = false;
         }
     }
@@ -527,4 +527,3 @@ Checkbox is an extension to standard checkbox element with theming.
 | checkbox.icon.disabled.color | --p-checkbox-icon-disabled-color | Disabled color of icon |
 | checkbox.icon.sm.size | --p-checkbox-icon-sm-size | Sm size of icon |
 | checkbox.icon.lg.size | --p-checkbox-icon-lg-size | Lg size of icon |
-

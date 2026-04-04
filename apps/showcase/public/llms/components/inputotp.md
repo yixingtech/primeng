@@ -94,7 +94,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-inputotp formControlName="value" [invalid]="isInvalid('value')" />
+                    <p-inputotp formControlName="value" [pInvalid]="isInvalid('value')" />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">Passcode is required.</p-message>
                     }
@@ -243,7 +243,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-inputotp #otpModel="ngModel" [(ngModel)]="value" [invalid]="otpModel.invalid && (otpModel.touched || exampleForm.submitted)" name="value" required [minlength]="4" />
+                    <p-inputotp #otpModel="ngModel" [(ngModel)]="value" [pInvalid]="otpModel.invalid && (otpModel.touched || exampleForm.submitted)" name="value" required [minlength]="4" />
                     @if (otpModel.invalid && (otpModel.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Passcode is required.</p-message>
                     }
@@ -333,4 +333,3 @@ Input Otp is used to enter one time passwords.
 | inputotp.input.width | --p-inputotp-input-width | Width of input |
 | inputotp.input.sm.width | --p-inputotp-input-sm-width | Width of input in small screens |
 | inputotp.input.lg.width | --p-inputotp-input-lg-width | Width of input in large screens |
-

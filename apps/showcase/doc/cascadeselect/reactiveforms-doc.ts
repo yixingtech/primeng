@@ -30,7 +30,7 @@ import { AppDocSectionText } from '@/components/doc/app.docsectiontext';
                         [optionGroupChildren]="['states', 'cities']"
                         [style]="{ minWidth: '14rem' }"
                         placeholder="Select a City"
-                        [invalid]="isInvalid('selectedCity')"
+                        [pInvalid]="isInvalid('selectedCity')"
                     />
 
                     @if (isInvalid('selectedCity')) {

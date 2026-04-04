@@ -21,7 +21,7 @@ import { CommonModule } from '@angular/common';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-selectbutton [options]="stateOptions" formControlName="value" [invalid]="isInvalid('value')" optionLabel="label" optionValue="value" />
+                    <p-selectbutton [options]="stateOptions" formControlName="value" [pInvalid]="isInvalid('value')" optionLabel="label" optionValue="value" />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">Selection is required</p-message>
                     }

@@ -592,8 +592,8 @@ interface City {
 @Component({
     template: `
         <div class="card flex justify-center gap-4">
-            <p-select [options]="cities" [(ngModel)]="selectedCity1" optionLabel="name" [showClear]="true" [invalid]="value1" placeholder="Select a City" class="w-full md:w-56" />
-            <p-select [options]="cities" [(ngModel)]="selectedCity2" optionLabel="name" [showClear]="true" [invalid]="value2" placeholder="Select a City" class="w-full md:w-56" variant="filled" />
+            <p-select [options]="cities" [(ngModel)]="selectedCity1" optionLabel="name" [showClear]="true" [pInvalid]="value1" placeholder="Select a City" class="w-full md:w-56" />
+            <p-select [options]="cities" [(ngModel)]="selectedCity2" optionLabel="name" [showClear]="true" [pInvalid]="value2" placeholder="Select a City" class="w-full md:w-56" variant="filled" />
         </div>
     `,
     standalone: true,
@@ -641,21 +641,21 @@ export class SelectLazyvirtualscrollDemo {
 
     onLazyLoad(event) {
         this.loading = true;
-        
+
         if (this.loadLazyTimeout) {
             clearTimeout(this.loadLazyTimeout);
         }
-        
+
         //imitate delay of a backend call
         this.loadLazyTimeout = setTimeout(
             () => {
                 const { first, last } = event;
                 const items = [...this.items];
-        
+
                 for (let i = first; i < last; i++) {
                     items[i] = { label: `Item #${i}`, value: i };
                 }
-        
+
                 this.items = items;
                 this.loading = false;
             },
@@ -728,7 +728,7 @@ interface City {
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 w-full sm:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-select formControlName="city" [options]="cities" [invalid]="isInvalid('city')" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+                    <p-select formControlName="city" [options]="cities" [pInvalid]="isInvalid('city')" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
                     @if (isInvalid('city')) {
                         <p-message severity="error" size="small" variant="simple">City is required.</p-message>
                     }
@@ -901,7 +901,7 @@ interface City {
                         #city="ngModel"
                         [(ngModel)]="selectedCity"
                         [options]="cities"
-                        [invalid]="city.invalid && (city.touched || exampleForm.submitted)"
+                        [pInvalid]="city.invalid && (city.touched || exampleForm.submitted)"
                         optionLabel="name"
                         name="city"
                         placeholder="Select a City"
@@ -1207,4 +1207,3 @@ Select is used to choose an item from a collection of options.
 | select.checkmark.gutter.start | --p-select-checkmark-gutter-start | Gutter start of checkmark |
 | select.checkmark.gutter.end | --p-select-checkmark-gutter-end | Gutter end of checkmark |
 | select.empty.message.padding | --p-select-empty-message-padding | Padding of empty message |
-

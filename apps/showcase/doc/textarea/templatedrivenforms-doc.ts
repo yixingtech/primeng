@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <textarea name="address" #address="ngModel" rows="5" cols="30" [(ngModel)]="value" pTextarea [invalid]="address.invalid && (address.touched || exampleForm.submitted)" required></textarea>
+                    <textarea name="address" #address="ngModel" rows="5" cols="30" [(ngModel)]="value" pTextarea [pInvalid]="address.invalid && (address.touched || exampleForm.submitted)" required></textarea>
                     @if (address.invalid && (address.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Address is required.</p-message>
                     }

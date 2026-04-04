@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 w-40">
                 <div class="flex flex-col items-center gap-2">
-                    <p-rating formControlName="ratingValue" [invalid]="isInvalid('ratingValue')" />
+                    <p-rating formControlName="ratingValue" [pInvalid]="isInvalid('ratingValue')" />
                     @if (isInvalid('ratingValue')) {
                         <p-message severity="error" size="small" variant="simple">Value is required.</p-message>
                     }

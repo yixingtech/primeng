@@ -27,7 +27,7 @@ interface City {
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 w-full sm:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-select formControlName="city" [options]="cities" [invalid]="isInvalid('city')" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+                    <p-select formControlName="city" [options]="cities" [pInvalid]="isInvalid('city')" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
                     @if (isInvalid('city')) {
                         <p-message severity="error" size="small" variant="simple">City is required.</p-message>
                     }

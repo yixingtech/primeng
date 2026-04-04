@@ -16,7 +16,7 @@ class TestBasicInputTextComponent {
 @Component({
     standalone: true,
     imports: [InputText, FormsModule],
-    template: ` <input type="text" pInputText [(ngModel)]="content" [pSize]="size" [variant]="variant" [fluid]="fluid" [invalid]="invalid" placeholder="Advanced input" /> `
+    template: ` <input type="text" pInputText [(ngModel)]="content" [pSize]="size" [variant]="variant" [fluid]="fluid" [pInvalid]="invalid" placeholder="Advanced input" /> `
 })
 class TestAdvancedInputTextComponent {
     content: string = '';
@@ -47,7 +47,7 @@ class TestPasswordInputComponent {
 @Component({
     standalone: true,
     imports: [InputText, FormsModule],
-    template: ` <input type="text" pInputText [pt]="pt" [invalid]="invalid" [fluid]="fluid" [variant]="variant" [(ngModel)]="value" /> `
+    template: ` <input type="text" pInputText [pt]="pt" [pInvalid]="invalid" [fluid]="fluid" [variant]="variant" [(ngModel)]="value" /> `
 })
 class TestPTInputTextComponent {
     value: string = '';

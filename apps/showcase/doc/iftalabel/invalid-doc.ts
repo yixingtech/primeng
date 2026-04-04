@@ -15,7 +15,7 @@ import { AppDocSectionText } from '@/components/doc/app.docsectiontext';
         </app-docsectiontext>
         <div class="card flex justify-center">
             <p-iftalabel>
-                <input pInputText id="username" [(ngModel)]="value" [invalid]="!value" autocomplete="off" />
+                <input pInputText id="username" [(ngModel)]="value" [pInvalid]="!value" autocomplete="off" />
                 <label for="username">Username</label>
             </p-iftalabel>
         </div>

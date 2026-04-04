@@ -48,7 +48,7 @@ export class BackwardCompatibleDoc {
     };
 
     code2: Code = {
-        html: `<input type="text" pattern="email" [invalid]="email.invalid && (email.touched || sampleForm.submitted)" />`
+        html: `<input type="text" pattern="email" [pInvalid]="email.invalid && (email.touched || sampleForm.submitted)" />`
     };
 
     code3: Code = {

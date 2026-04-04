@@ -70,7 +70,7 @@ export class Textarea extends BaseModelHolder<TextareaPassThrough> {
      * @defaultValue false
      * @group Props
      */
-    invalid = input(undefined, { transform: booleanAttribute });
+    invalid = input(undefined, { transform: booleanAttribute, alias: 'pInvalid' });
 
     $variant = computed(() => this.variant() || this.config.inputStyle() || this.config.inputVariant());
     /**

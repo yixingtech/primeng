@@ -28,7 +28,7 @@ interface City {
                         #city="ngModel"
                         [(ngModel)]="selectedCity"
                         [options]="cities"
-                        [invalid]="city.invalid && (city.touched || exampleForm.submitted)"
+                        [pInvalid]="city.invalid && (city.touched || exampleForm.submitted)"
                         optionLabel="name"
                         name="city"
                         placeholder="Select a City"

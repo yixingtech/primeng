@@ -64,7 +64,7 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
 @Component({
     template: `
         <div class="card flex justify-center">
-            <p-toggleswitch [(ngModel)]="checked" [invalid]="!checked" />
+            <p-toggleswitch [(ngModel)]="checked" [pInvalid]="!checked" />
         </div>
     `,
     standalone: true,
@@ -117,7 +117,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 w-48">
                 <div class="flex flex-col items-center gap-2">
-                    <p-toggleswitch name="activation" formControlName="activation" [invalid]="isInvalid('activation')" />
+                    <p-toggleswitch name="activation" formControlName="activation" [pInvalid]="isInvalid('activation')" />
                     @if (isInvalid('activation')) {
                         <p-message severity="error" size="small" variant="simple">Activation is required.</p-message>
                     }
@@ -200,7 +200,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4 w-48">
                 <div class="flex flex-col items-center gap-2">
-                    <p-toggleswitch #model="ngModel" [(ngModel)]="checked" name="activation" [invalid]="model.invalid && exampleForm.submitted" required />
+                    <p-toggleswitch #model="ngModel" [(ngModel)]="checked" name="activation" [pInvalid]="model.invalid && exampleForm.submitted" required />
                     @if (model.invalid && exampleForm.submitted) {
                         <p-message severity="error" size="small" variant="simple">Activation is required.</p-message>
                     }
@@ -282,4 +282,3 @@ export class ToggleswitchTemplatedrivenformsDemo {
 | toggleswitch.handle.hover.color | --p-toggleswitch-handle-hover-color | Hover color of handle |
 | toggleswitch.handle.checked.color | --p-toggleswitch-handle-checked-color | Checked color of handle |
 | toggleswitch.handle.checked.hover.color | --p-toggleswitch-handle-checked-hover-color | Checked hover color of handle |
-

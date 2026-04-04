@@ -19,7 +19,7 @@ class TestBasicTextareaComponent {
 @Component({
     standalone: true,
     imports: [Textarea, FormsModule],
-    template: ` <textarea pTextarea [(ngModel)]="content" [autoResize]="enableAutoResize" [pSize]="size" [variant]="variant" [fluid]="fluid" [invalid]="invalid" (onResize)="onResizeHandler($event)" rows="3" cols="30"> </textarea> `
+    template: ` <textarea pTextarea [(ngModel)]="content" [autoResize]="enableAutoResize" [pSize]="size" [variant]="variant" [fluid]="fluid" [pInvalid]="invalid" (onResize)="onResizeHandler($event)" rows="3" cols="30"> </textarea> `
 })
 class TestAdvancedTextareaComponent {
     content: string = '';
@@ -47,7 +47,7 @@ class TestReactiveFormTextareaComponent {
 @Component({
     standalone: true,
     imports: [Textarea, FormsModule],
-    template: ` <textarea pTextarea [(ngModel)]="value" [pt]="pt" [autoResize]="autoResize" [invalid]="invalid"></textarea> `
+    template: ` <textarea pTextarea [(ngModel)]="value" [pt]="pt" [autoResize]="autoResize" [pInvalid]="invalid"></textarea> `
 })
 class TestPTTextareaComponent {
     value: string = '';

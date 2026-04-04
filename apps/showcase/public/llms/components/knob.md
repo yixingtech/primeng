@@ -145,7 +145,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col items-center gap-4">
                 <div class="flex flex-col items-center gap-1">
-                    <p-knob formControlName="value" [invalid]="isInvalid('value')" />
+                    <p-knob formControlName="value" [pInvalid]="isInvalid('value')" />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">{{ getErrorMessage('value') }}</p-message>
                     }
@@ -187,11 +187,11 @@ export class KnobReactiveformsDemo {
     getErrorMessage(controlName: string): string | null {
         const control = this.getControl(controlName);
         if (!control || !control.errors) return null;
-        
+
         if (control.errors['min']) {
             return 'Value must be greater than 15.';
         }
-        
+
         if (control.errors['max']) {
             return 'Must be less than 75.';
         }
@@ -336,7 +336,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col items-center gap-4">
                 <div class="flex flex-col items-center gap-1">
-                    <p-knob #model="ngModel" [(ngModel)]="value" [invalid]="isInvalid(model)" name="knob" />
+                    <p-knob #model="ngModel" [(ngModel)]="value" [pInvalid]="isInvalid(model)" name="knob" />
                     @if (isInvalid(model)) {
                         <p-message severity="error" size="small" variant="simple">{{ getErrorMessage(model) }}</p-message>
                     }
@@ -355,7 +355,7 @@ export class KnobTemplatedrivenformsDemo {
 
     onSubmit(form: NgForm) {
         this.formSubmitted = true;
-        
+
         if (!this.isInvalid(form.controls['knob'])) {
             this.messageService.add({
                 severity: 'success',
@@ -363,26 +363,26 @@ export class KnobTemplatedrivenformsDemo {
                 detail: 'Form is submitted',
                 life: 3000
             });
-        
+
             form.resetForm({ knob: 15 });
-        
+
             this.formSubmitted = false;
         }
     }
 
     getErrorMessage(control: any): string | null {
         const value = control?.value;
-        
+
         return value < 25 ? 'Value must be greater than 25.' : value > 75 ? 'Must be less than 75.' : null;
     }
 
     isInvalid(control: any): boolean {
         if (!control) return false;
-        
+
         const value = control.value;
-        
+
         const hasError = value < 25 || value > 75;
-        
+
         return hasError && (this.formSubmitted || control.dirty);
     }
 }
@@ -460,4 +460,3 @@ Knob is a form component to define number inputs with a dial.
 | knob.value.background | --p-knob-value-background | Background of value |
 | knob.range.background | --p-knob-range-background | Background of range |
 | knob.text.color | --p-knob-text-color | Color of text |
-

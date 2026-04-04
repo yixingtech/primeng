@@ -445,8 +445,8 @@ import { DatePickerModule } from 'primeng/datepicker';
 @Component({
     template: `
         <div class="card flex flex-wrap justify-center gap-4">
-            <p-datepicker [(ngModel)]="date1" [invalid]="!date1" placeholder="Date" />
-            <p-datepicker [(ngModel)]="date2" [invalid]="!date2" variant="filled" placeholder="Date" />
+            <p-datepicker [(ngModel)]="date1" [pInvalid]="!date1" placeholder="Date" />
+            <p-datepicker [(ngModel)]="date2" [pInvalid]="!date2" variant="filled" placeholder="Date" />
         </div>
     `,
     standalone: true,
@@ -672,7 +672,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-datepicker formControlName="selectedDate" [invalid]="isInvalid('selectedDate')" />
+                    <p-datepicker formControlName="selectedDate" [pInvalid]="isInvalid('selectedDate')" />
                     @if (isInvalid('selectedDate')) {
                         <p-message severity="error" size="small" variant="simple">Date is required.</p-message>
                     }
@@ -780,7 +780,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-datepicker name="date" [invalid]="dateModel.invalid && (dateModel.touched || exampleForm.submitted)" #dateModel="ngModel" [(ngModel)]="date" required />
+                    <p-datepicker name="date" [pInvalid]="dateModel.invalid && (dateModel.touched || exampleForm.submitted)" #dateModel="ngModel" [(ngModel)]="date" required />
                     @if (dateModel.invalid && (dateModel.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Date is required.</p-message>
                     }
@@ -1262,4 +1262,3 @@ DatePicker is a form component to work with dates.
 | datepicker.time.picker.button.gap | --p-datepicker-time-picker-button-gap | Button gap of time picker |
 | datepicker.today.background | --p-datepicker-today-background | Background of today |
 | datepicker.today.color | --p-datepicker-today-color | Color of today |
-

@@ -13,7 +13,7 @@ import { TextareaModule } from 'primeng/textarea';
             <p>The invalid state is applied using the <i>⁠invalid</i> property to indicate failed validation, which can be integrated with Angular Forms.</p>
         </app-docsectiontext>
         <div class="card flex justify-center">
-            <textarea rows="5" cols="30" pTextarea [(ngModel)]="value" [invalid]="!value" placeholder="Address"></textarea>
+            <textarea rows="5" cols="30" pTextarea [(ngModel)]="value" [pInvalid]="!value" placeholder="Address"></textarea>
         </div>
         <app-code></app-code>
     `

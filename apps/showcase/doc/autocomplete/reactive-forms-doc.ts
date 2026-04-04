@@ -25,7 +25,7 @@ interface AutoCompleteCompleteEvent {
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex justify-center flex-col gap-4 md:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-autocomplete formControlName="value" [suggestions]="items" [invalid]="isInvalid('value')" (completeMethod)="search($event)" fluid />
+                    <p-autocomplete formControlName="value" [suggestions]="items" [pInvalid]="isInvalid('value')" (completeMethod)="search($event)" fluid />
                     @if (isInvalid('value')) {
                         <p-message severity="error" size="small" variant="simple">Value is required.</p-message>
                     }

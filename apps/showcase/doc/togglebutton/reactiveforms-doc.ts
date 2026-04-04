@@ -21,7 +21,7 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col items-center gap-4">
                 <div class="flex flex-col items-center gap-1">
-                    <p-togglebutton name="consent" formControlName="checked" [invalid]="isInvalid('checked')" onLabel="Accept All" offLabel="Reject All" class="min-w-40" />
+                    <p-togglebutton name="consent" formControlName="checked" [pInvalid]="isInvalid('checked')" onLabel="Accept All" offLabel="Reject All" class="min-w-40" />
                     @if (isInvalid('checked')) {
                         <p-message severity="error" size="small" variant="simple">Consent is mandatory.</p-message>
                     }

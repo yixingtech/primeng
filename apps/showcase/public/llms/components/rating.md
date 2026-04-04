@@ -94,7 +94,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4 w-40">
                 <div class="flex flex-col items-center gap-2">
-                    <p-rating formControlName="ratingValue" [invalid]="isInvalid('ratingValue')" />
+                    <p-rating formControlName="ratingValue" [pInvalid]="isInvalid('ratingValue')" />
                     @if (isInvalid('ratingValue')) {
                         <p-message severity="error" size="small" variant="simple">Value is required.</p-message>
                     }
@@ -205,7 +205,7 @@ import { MessageService } from 'primeng/api';
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex flex-col gap-4 w-40">
                 <div class="flex flex-col items-center gap-2">
-                    <p-rating #ratingValue="ngModel" [(ngModel)]="value" required name="ratingValue" [invalid]="ratingValue.invalid && (ratingValue.touched || exampleForm.submitted)" />
+                    <p-rating #ratingValue="ngModel" [(ngModel)]="value" required name="ratingValue" [pInvalid]="ratingValue.invalid && (ratingValue.touched || exampleForm.submitted)" />
                     @if (ratingValue.invalid && (ratingValue.touched || exampleForm.submitted)) {
                         <p-message severity="error" size="small" variant="simple">Value is required.</p-message>
                     }
@@ -332,4 +332,3 @@ Rating is an extension to standard radio button element with theming.
 | rating.icon.color | --p-rating-icon-color | Color of icon |
 | rating.icon.hover.color | --p-rating-icon-hover-color | Hover color of icon |
 | rating.icon.active.color | --p-rating-icon-active-color | Active color of icon |
-

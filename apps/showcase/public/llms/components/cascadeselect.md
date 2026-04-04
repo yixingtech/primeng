@@ -663,10 +663,10 @@ import { CascadeSelectModule } from 'primeng/cascadeselect';
 @Component({
     template: `
         <div class="card flex flex-wrap justify-center gap-4">
-            <p-cascadeselect [(ngModel)]="selectedCity1" [invalid]="!selectedCity1" [options]="countries" optionLabel="cname" optionGroupLabel="name" [optionGroupChildren]="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City" />
+            <p-cascadeselect [(ngModel)]="selectedCity1" [pInvalid]="!selectedCity1" [options]="countries" optionLabel="cname" optionGroupLabel="name" [optionGroupChildren]="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City" />
             <p-cascadeselect
                 [(ngModel)]="selectedCity2"
-                [invalid]="!selectedCity2"
+                [pInvalid]="!selectedCity2"
                 [options]="countries"
                 optionLabel="cname"
                 optionGroupLabel="name"
@@ -811,7 +811,7 @@ import { MessageService } from 'primeng/api';
                         [optionGroupChildren]="['states', 'cities']"
                         [style]="{ minWidth: '14rem' }"
                         placeholder="Select a City"
-                        [invalid]="isInvalid('selectedCity')"
+                        [pInvalid]="isInvalid('selectedCity')"
                     />
                     @if (isInvalid('selectedCity')) {
                         <p-message severity="error" size="small" variant="simple">City is required.</p-message>
@@ -1175,7 +1175,7 @@ import { MessageService } from 'primeng/api';
                         #city="ngModel"
                         [(ngModel)]="selectedCity"
                         [options]="countries"
-                        [invalid]="city.invalid && (city.touched || exampleForm.submitted)"
+                        [pInvalid]="city.invalid && (city.touched || exampleForm.submitted)"
                         name="city"
                         optionLabel="cname"
                         optionGroupLabel="name"
@@ -1384,4 +1384,3 @@ export class CascadeselectTemplatedrivenformsDemo {
 | cascadeselect.option.icon.focus.color | --p-cascadeselect-option-icon-focus-color | Icon focus color of option |
 | cascadeselect.option.icon.size | --p-cascadeselect-option-icon-size | Icon size of option |
 | cascadeselect.clear.icon.color | --p-cascadeselect-clear-icon-color | Color of clear icon |
-

@@ -110,7 +110,7 @@ const DATEPICKER_INSTANCE = new InjectionToken<DatePicker>('DATEPICKER_INSTANCE'
                 [pAutoFocus]="autofocus"
                 [variant]="$variant()"
                 [fluid]="hasFluid"
-                [invalid]="invalid()"
+                [pInvalid]="invalid()"
                 [pt]="ptm('pcInputText')"
                 [unstyled]="unstyled()"
             />

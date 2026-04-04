@@ -13,7 +13,7 @@ import { AppDocSectionText } from '@/components/doc/app.docsectiontext';
             <p>The invalid state is applied using the <i>⁠invalid</i> property to indicate failed validation, which can be integrated with Angular Forms.</p>
         </app-docsectiontext>
         <div class="card flex justify-center">
-            <p-radiobutton [(ngModel)]="value" [invalid]="!value" />
+            <p-radiobutton [(ngModel)]="value" [pInvalid]="!value" />
         </div>
         <app-code></app-code>
     `

@@ -73,9 +73,9 @@ class TestRadioGroupComponent {
     imports: [RadioButton, ReactiveFormsModule],
     template: `
         <form [formGroup]="radioForm">
-            <p-radiobutton formControlName="selectedValue" name="radioGroup" value="value1" inputId="radio1" [invalid]="isInvalid" />
-            <p-radiobutton formControlName="selectedValue" name="radioGroup" value="value2" inputId="radio2" [invalid]="isInvalid" />
-            <p-radiobutton formControlName="selectedValue" name="radioGroup" value="value3" inputId="radio3" [invalid]="isInvalid" />
+            <p-radiobutton formControlName="selectedValue" name="radioGroup" value="value1" inputId="radio1" [pInvalid]="isInvalid" />
+            <p-radiobutton formControlName="selectedValue" name="radioGroup" value="value2" inputId="radio2" [pInvalid]="isInvalid" />
+            <p-radiobutton formControlName="selectedValue" name="radioGroup" value="value3" inputId="radio3" [pInvalid]="isInvalid" />
         </form>
     `
 })

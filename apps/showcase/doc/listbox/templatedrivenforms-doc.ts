@@ -23,7 +23,7 @@ interface City {
         <div class="card flex justify-center">
             <form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)" class="flex justify-center flex-col gap-4 md:w-56">
                 <div class="flex flex-col gap-1">
-                    <p-listbox #city="ngModel" [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" class="w-full md:w-56" [invalid]="city.invalid && exampleForm.submitted" name="city" required />
+                    <p-listbox #city="ngModel" [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" class="w-full md:w-56" [pInvalid]="city.invalid && exampleForm.submitted" name="city" required />
                     @if (city.invalid && exampleForm.submitted) {
                         <p-message severity="error" size="small" variant="simple">City is required.</p-message>
                     }

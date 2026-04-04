@@ -138,7 +138,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 @Component({
     template: `
         <div class="card flex justify-center">
-            <p-radiobutton [(ngModel)]="value" [invalid]="!value" />
+            <p-radiobutton [(ngModel)]="value" [pInvalid]="!value" />
         </div>
     `,
     standalone: true,
@@ -170,7 +170,7 @@ import { MessageService } from 'primeng/api';
                 <div class="flex flex-wrap gap-4">
                     @for (category of categories; track category.key) {
                         <div class="flex items-center gap-2">
-                            <p-radiobutton formControlName="selectedCategory" name="selectedCategory" [inputId]="category.key" [value]="category" [invalid]="isInvalid('selectedCategory')" />
+                            <p-radiobutton formControlName="selectedCategory" name="selectedCategory" [inputId]="category.key" [value]="category" [pInvalid]="isInvalid('selectedCategory')" />
                             <label [for]="category.key"> {{ category.name }} </label>
                         </div>
                     }
@@ -208,7 +208,7 @@ export class RadiobuttonReactiveformsDemo {
 
     onSubmit() {
         this.formSubmitted = true;
-        
+
         if (this.exampleForm.valid) {
             this.messageService.add({
                 severity: 'success',
@@ -216,9 +216,9 @@ export class RadiobuttonReactiveformsDemo {
                 detail: 'Form is submitted',
                 life: 3000
             });
-        
+
             this.exampleForm.reset();
-        
+
             this.formSubmitted = false;
         }
     }
@@ -280,7 +280,7 @@ import { MessageService } from 'primeng/api';
                 <div class="flex flex-wrap gap-4">
                     @for (category of categories; track category.name) {
                         <div class="flex items-center gap-2">
-                            <p-radiobutton [(ngModel)]="ingredient" [inputId]="category.key" [value]="category" [invalid]="isInvalid(exampleForm)" name="ingredient" />
+                            <p-radiobutton [(ngModel)]="ingredient" [inputId]="category.key" [value]="category" [pInvalid]="isInvalid(exampleForm)" name="ingredient" />
                             <label [for]="category.key"> {{ category.name }} </label>
                         </div>
                     }
@@ -374,4 +374,3 @@ export class RadiobuttonTemplatedrivenformsDemo {
 | radiobutton.icon.disabled.color | --p-radiobutton-icon-disabled-color | Disabled color of icon |
 | radiobutton.icon.sm.size | --p-radiobutton-icon-sm-size | Sm size of icon |
 | radiobutton.icon.lg.size | --p-radiobutton-icon-lg-size | Lg size of icon |
-

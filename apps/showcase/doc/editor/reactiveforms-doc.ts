@@ -21,7 +21,7 @@ import { AppDocSectionText } from '@/components/doc/app.docsectiontext';
         <div class="card ">
             <form [formGroup]="exampleForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
                 <div class="flex flex-col gap-1">
-                    <p-editor formControlName="text" [invalid]="isInvalid('text')" [style]="{ height: '320px' }" />
+                    <p-editor formControlName="text" [pInvalid]="isInvalid('text')" [style]="{ height: '320px' }" />
                     @if (isInvalid('text')) {
                         <p-message severity="error" size="small" variant="simple">Content is required.</p-message>
                     }
